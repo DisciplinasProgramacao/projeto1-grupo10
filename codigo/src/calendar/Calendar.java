@@ -1,18 +1,31 @@
 package calendar;
-import java.util.Date;
+
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;  
+import java.time.LocalDate; 
 
 public class Calendar {
     
-    private List<Reminders> reminders = new LinkedList<>();
+    private LinkedList<Reminders> reminders = new LinkedList<Reminders>();
 
     Calendar() { }
 
+    public LinkedList<Reminders> getReminders() {
+        return reminders;
+    }
+
     public void addDate(Reminders date) {
         reminders.add(date);
+        Collections.sort(reminders);
+    }
+
+    public void removeDate(Reminders r) {
+        if(!r.getIsRepeating() && (LocalDate.now().equals(r.getSelectedDate()) || LocalDate.now().isAfter(r.getSelectedDate()))) {
+            reminders.remove(r);
+        } else {
+            System.out.println("It is not an old date");
+        }
     }
 
     public void getAllDatesBetween(String first, String last) {
@@ -25,5 +38,6 @@ public class Calendar {
                 System.out.print(element.getSelectedDate() + " ");
             }
         }
+        System.out.println();
     }
 }
