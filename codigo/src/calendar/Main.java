@@ -1,5 +1,6 @@
 package calendar;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.time.format.DateTimeFormatter;
 import java.text.SimpleDateFormat;
@@ -21,10 +22,24 @@ class Main {
         insert(agenda, date3);
         insert(agenda, date4);
 
-        agenda.removeDate(date3);
-        agenda.removeDate(date4);
+        date3.activeWeekDay(1);
+        date3.activeWeekDay(6);
 
-        agenda.getAllDatesBetween("2022-09-03", "2022-09-15");
+        System.out.println(Arrays.toString(date3.getActiveDays()));
+
+        date3.setNextDay();
+        System.out.println(date3.getSelectedDate());
+        date3.setNextDay();
+        System.out.println(date3.getSelectedDate());
+        date3.setNextDay();
+        System.out.println(date3.getSelectedDate());
+        date3.setNextDay();
+        System.out.println(date3.getSelectedDate());
+
+        // agenda.removeDate(date3);
+        // agenda.removeDate(date4);
+
+        agenda.getAllDatesBetween("2022-09-03", "2022-09-20");
     }
 
     public static void insert(Calendar agenda, Reminders date) {
