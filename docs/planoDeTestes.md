@@ -1,8 +1,15 @@
 # Especifique aqui seu plano de testes, no formato:
 
-1. Objetivo do teste 1
-  - nome do método 1
-2. Objetivo do teste 2
-  - nome do método 2
+Classe CalendarTest:
+1. Verificar inserções de itens na lista e sua ordenação
+  - shouldInsertADateAndSortReminders
+2. Verificar remoções de itens validos na lista
+  - shouldRemoveValidDate
 
-e assim sucessivamente.
+Classe RemindersTest:
+1. Verificar se os dias da semana em que o lembrete deve ativar
+  - shouldSetDaysToRepeat
+2. Verificar se os dias estão mudando de acordo com os dias ativos do lembrete
+  - shouldChangeSelectedDateByRepeatRule
+3. Verificar ativação e desativação dos dias da semana em que o lembrete repetirá
+  - shouldActiveAndDeactiveRepeating
