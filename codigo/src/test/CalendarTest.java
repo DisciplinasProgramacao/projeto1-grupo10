@@ -19,6 +19,9 @@ public class CalendarTest {
     Reminders date4 = new Reminders("Dermatologista", LocalDate.parse("2022-09-04"));
     Reminders date5 = new Reminders("Fazer compras", LocalDate.parse("2022-09-06"));
 
+    Reminders removeDate1 = new Reminders("Delete Test", LocalDate.now());
+    Reminders removeDate2 = new Reminders("Delete Test", LocalDate.now().plusDays(5));
+
     @Test
     public void shouldInsertADateAndSortReminders() throws Exception {
         agenda.addDate(date1);
@@ -33,8 +36,22 @@ public class CalendarTest {
     }
 
     @Test
-    public void shouldResetReminder() {
+    public void shouldRemoveValidDate() {
+        agenda.addDate(removeDate1);
+        agenda.addDate(removeDate2);
 
+        removeDate2.activeWeekDay(1);
+
+        assertEquals(removeDate1, agenda.getReminders().get(0));
+
+        agenda.removeDate(removeDate1);
+        assertEquals(removeDate2, agenda.getReminders().get(0));
+
+        agenda.removeDate(removeDate2);
+        assertEquals(removeDate2, agenda.getReminders().get(0));
+
+        removeDate2.deactiveWeekDay(1);
+        agenda.removeDate(removeDate2);
+        assertEquals(0, agenda.getReminders().size());
     }
-
 }

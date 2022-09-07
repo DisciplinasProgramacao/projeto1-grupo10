@@ -20,12 +20,10 @@ public class Calendar {
     }
 
     public void removeDate(Reminders r) {
-        if(!r.getIsRepeating() && (LocalDate.now().equals(r.getSelectedDate()) || LocalDate.now().isAfter(r.getSelectedDate()))) {
+        if(!r.getIsRepeating()) {
             reminders.remove(r);
-        } else if (r.getIsRepeating()){
-            System.out.println("It can't be remove, cause its a repeating date");
         } else {
-            System.out.println("It is not an old date");
+            System.out.println("It can't be remove, cause its a repeating date");
         }
     }
 
