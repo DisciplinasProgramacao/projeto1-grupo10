@@ -1,7 +1,7 @@
 | Usuário      | Requisito | Motivação     |
 | :----:        |    :----:   |          :----: |
-| Como um empregado, eu quero      | Organizar meus compromissos | Para não perder minhas reuniões |
-| Como um estudante, eu quero   | Criar uma rotina | Para manter o foco nos estudos |
+| Como um empregado, eu quero   | Definir datas | Para não perder minhas reuniões |
+| Como um estudante, eu quero   | Definir uma constancia em compromissos | Para criar uma rotina e focar nos estudos |
 
 
 
