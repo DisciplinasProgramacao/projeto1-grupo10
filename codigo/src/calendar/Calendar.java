@@ -2,14 +2,13 @@ package calendar;
 
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 import java.time.LocalDate; 
 
 public class Calendar {
     
     private LinkedList<Reminders> reminders = new LinkedList<Reminders>();
 
-    Calendar() { }
+    public Calendar() { }
 
     public LinkedList<Reminders> getReminders() {
         return reminders;
@@ -31,15 +30,26 @@ public class Calendar {
     }
 
     public void getAllDatesBetween(String first, String last) {
+        Collections.sort(reminders);
         LocalDate firstDate = LocalDate.parse(first);
         LocalDate lastDate = LocalDate.parse(last);
 
+        System.out.println("\n\nYour events");
         for(Reminders element : reminders) {
             if((element.getSelectedDate().equals(firstDate) || element.getSelectedDate().isAfter(firstDate))&&
                (element.getSelectedDate().isBefore(lastDate) || element.getSelectedDate().equals(lastDate))) {
-                System.out.print(element.getSelectedDate() + " ");
+                System.out.println("Event:" + element.getName() + " " + element.getSelectedDate() + " ");
             }
         }
         System.out.println();
+    }
+
+    public void printTodayReminders() {
+        System.out.println("\n\nWhat's for today?");
+        for(Reminders element : reminders) {
+            if(LocalDate.now().equals(element.getSelectedDate())) {
+                System.out.println("Event:" + element.getName() + " " + element.getSelectedDate() + " ");
+            }
+        }
     }
 }

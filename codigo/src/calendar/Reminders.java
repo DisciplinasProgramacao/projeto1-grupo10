@@ -9,7 +9,7 @@ public class Reminders implements Comparable<Reminders> {
     //Its represent week days starting on monday and finish on sunday
     private boolean activeDays[] = {false, false, false, false, false, false, false};
 
-    Reminders(String name, LocalDate selectedDate) {
+    public Reminders(String name, LocalDate selectedDate) {
         this.name = name;
         this.selectedDate = selectedDate;
     }
@@ -25,25 +25,26 @@ public class Reminders implements Comparable<Reminders> {
     }
 
     public void deactiveWeekDay(int weekDay) {
+        int activeDaysCounter = 0;
         if(weekDay > 0 && weekDay < 8) {
             activeDays[weekDay - 1] = false;
         }
         else {
             System.out.println("Enter a valid day, it must be between 1(MONDAY) and 7(SUNDAY)");
         }
-        for(boolean activeDay : activeDays) {
-            if(activeDay) {
-                break;
+        for(int i = 0; i < activeDays.length; i++) {
+            if(activeDays[i]) {
+                activeDaysCounter++;
             }
-            else {
-                isRepeating = false;
-            }
+        }
+        if(activeDaysCounter == 0) {
+            isRepeating = false;
         }
     }
 
     public void setNextDay() {
         if(isRepeating) {
-            //Uncomment this if to verify the date before set the next selectedDate
+            //Uncomment this "if" to verify the date before set the next selectedDate
             //if(LocalDate.now().equals(selectedDate)) {
                 int index = this.selectedDate.getDayOfWeek().getValue();
                 int counter = 1;
@@ -62,6 +63,10 @@ public class Reminders implements Comparable<Reminders> {
                 }
             //}
         }
+    }
+
+    public String getName() {
+        return name;
     }
     
     public LocalDate getSelectedDate() {
