@@ -7,6 +7,7 @@ Reminders se trata do compromisso em si, nela são armazenados todos os metadado
 Calendar é basicamente uma lista de Reminders que define todos os compromissos do usuário do programa.
 
 O programa pode:
+
     - Criar um compromisso e adicioná-lo na lista 
     Utilizando o método addDate()
 
