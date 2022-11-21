@@ -5,12 +5,15 @@ Esse projeto é a contrução de uma agenda que têm como objetivo principal:
  - Cadastrar compromissos periódicos
  - Fornecer um relatório de compromissos entre uma data inicial e uma data final(incluindo ambas)
 
+# Agenda de Compromissos
+O objetivo do projeto é desenvolver um software personalizado para controlar uma agenda de compromissos.
+
 # Correção
 
 # Diagrama de classes: 0/2 pontos 
 	- não entregou
 	
-# Requisitos corretamente implementados: 6/9 pontos 
+# Requisitos corretamente implementados: 5,4/9 pontos 
 	- print em código de classe: acoplamento incorreto
 	- cuidado com construtor vazio (Calendar)
 	- ordenar a cada inserção (addDate) não é boa ideia (desempenho)
@@ -18,7 +21,8 @@ Esse projeto é a contrução de uma agenda que têm como objetivo principal:
 	- não vi maneira clara de falar sobre repetições e períodos de compromissos.
 	
 	
-# Documentação de código: 0/4 pontos 
+# Documentação de código: 2/4 pontos 
+	- há documentação mínima no repositório. O requisito, no entanto, era de documentação das classes criadas.
 	
 # Testes: 3/5 pontos
 	- o teste é um código Java. Se for realizar atividades repetidas, use uma instrução de repetição (for, while...)
